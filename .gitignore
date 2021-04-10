@@ -4,7 +4,7 @@ ela_temp.png
 pred_mask.png
 
 temp_file_name.jpg
-temp
+temp*.jpg
 temp*.png
 *.h5
 assets/ela_temp.png
