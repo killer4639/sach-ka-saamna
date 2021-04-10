@@ -98,7 +98,7 @@ To get a local copy up and running follow these simple example steps.
 
 - [Python 3.7+](https://www.python.org/downloads/)
 - Make a bucket on Amazon AWS S3 and download the keys. Make sure your bucket is public.
-- Create an .env file with the following keys. (Team Code Camp- Please contact anyone from below contacts for S3 keys if there is a difficulty in using S3 or if you want to test with S3 without making an AWS account) 
+- Create an .env file with the following keys. (Team Vihaan- Please contact anyone from below contacts for S3 keys if there is a difficulty in using S3 or if you want to test with S3 without making an AWS account) 
 
   ```
   export S3_BUCKET=<Bucket Name>
