@@ -162,7 +162,7 @@ models
 
 ## Usage
 
-This video explains how to use the version 2.0 which classifies an image if its fake or real and shows the tampered regions. Let's watch this
+This video explains how to use sach ka saamna which classifies an image if its fake or real and shows the tampered regions. Let's watch this
 
 We have developed a slackbot and will create a telegram bot for using it so that you can detect tampering with the easy of your phone without visiting any website. We eventually want to extend it to WhatsApp (the biggest platform) hence increase our ease of usability
 
