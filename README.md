@@ -22,7 +22,7 @@
   <h3 align="center">Sach Ka Saamna</h3>
 
   <p align="center">
-    An awesome website to detect image tampering. Made with Love by the team fast for  Vihaan 4.0
+    An awesome website to detect image tampering. Made with Love by the team fast (team no. 49) for  Vihaan 4.0
     <br />
     <a href="https://github.com/killer4639/sach-ka-saamna-vihaan"><strong>Explore the docs »</strong></a>
     <br />
@@ -82,10 +82,14 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 - [JQuery](https://jquery.com)
 - [Flask](https://flask.palletsprojects.com/en/1.1.x/)
 - [Tensorflow](https://www.tensorflow.org/)
-- [OpenCV](https://www.opencv.org/)
 - [Keras](https://www.keras.io)
 - [NumPy](https://www.numpy.org/)
 - [Matplotlib](https://www.matplotlib.org/)
+- [Segmentation Models](https://segmentation-models.readthedocs.io/en/latest/#)
+- [Kaggle GPU]
+- [Scikit-image](https://scikit-image.org/)
+- [Pillow](https://pypi.org/project/Pillow/)
+- [OS](https://docs.python.org/3/library/os.html)
 
 <!-- GETTING STARTED -->
 
@@ -104,7 +108,7 @@ To get a local copy up and running follow these simple example steps.
   export S3_SECRET_ACCESS_KEY=<AWSSecretKey>
   export S3_KEY=<AWSAccessKeyId>
   export S3_REGION=<AWS Region>
-  export DATABASE_URL= <if you are using any postgresql hosted database then db url>
+
   ```
   
  - Make folder structure of the folder 'models' in the following way after downloading the models from and [here](https://drive.google.com/drive/folders/146X2Z_ubUO8W_0JLEx8Jrvw8937MUr2q?usp=sharing) and arrange them respectively
@@ -157,27 +161,21 @@ models
 
 This video explains how to use the version 2.0 which classifies an image if its fake or real and shows the tampered regions. Let's watch this
 
-We are developing a slack/ telegram bot for using it
+We are developing a slack/ telegram bot for using it so that you can detect tampering with the easy of your phone without visiting any website. We eventually want to extend it to WhatsApp (the biggest platform) hence increase our ease of usability
 
 The white region represents- Tampering
 
-
-
-
-
-Notebook walkthrough to understand algorithm
-
-
-
-
-
+https://user-images.githubusercontent.com/42690307/114278678-8ab24e80-9a4e-11eb-95cd-65e14e2f4b1e.mp4
 
 
 <!-- ROADMAP -->
 
 ## Roadmap
 
-- Building the model. We have used tensorflow and keras to train and build the model.
+- Data preprocessing.
+- Perform error level analysis of pristine and tampered images.
+- Building the segmentation and classification model. We have used keras with tensorflow as backend to train and build the model.
+- Hyper parameter tuning (learning rate,callback parameters,custom loss function etc).
 - Creating the web app for actual usability of our idea and not just a script to watch
 - Finally deploying it to heroku which took us more than a day because of our huge slug size and complexity
 - We are still not able to deploy the application which shows the location in the image with tampering because of our increased slug size and the limits of Heroku but we have our Version 1.0 ready :D
@@ -225,6 +223,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 - [Heroku](https://www.heroku.com)
 - [Font Awesome](https://fontawesome.com)
 - [OBS Studio](https://obsproject.com)
+- [Kaggle](https://www.kaggle.com/)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
