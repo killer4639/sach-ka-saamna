@@ -33,7 +33,6 @@
   </p>
 </p>
 
-	**If the hosted application shows error, please reload or contact below anyone**
   
 <!-- TABLE OF CONTENTS -->
 <details open="open">
