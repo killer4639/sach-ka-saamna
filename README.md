@@ -208,7 +208,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 - [Anikash Chakraborty](https://www.linkedin.com/in/anikash-chakraborty/) (mailto: akh.chakraborty11@gmail.com)
 - [Shiva Gupta](https://www.linkedin.com/in/shiva-gupta-1843b6170/) (mailto: shivagupta4639@gmail.com)
-- [Divyansh Goel](https://www.linkedin.com/in/divyansh-goel-a0a433166/) (mailto: divyanshgoel1999@gmail.com)
+- [Divyansh Goel](https://www.linkedin.com/in/divyansh-goel-a0a433166/) (mailto: divyanshgoel1999@gmail.com) (Team Leader)
 - Project Link: [https://github.com/killer4639/sach-ka-saamna-vihaan](https://github.com/killer4639/sach-ka-saamna-vihaan)
 
 <!-- ACKNOWLEDGEMENTS -->
@@ -219,7 +219,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 - [CASIA 2.0 Dataset](https://github.com/namtpham/casia2groundtruth)
 - [MIT License](https://spdx.org/licenses/MIT.html)
 - [Anfederico](https://github.com/anfederico/flaskex)
-- [Heroku](https://www.heroku.com)
 - [Font Awesome](https://fontawesome.com)
 - [OBS Studio](https://obsproject.com)
 - [Kaggle](https://www.kaggle.com/)
