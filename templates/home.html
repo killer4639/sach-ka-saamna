@@ -44,8 +44,9 @@
           {% if session['prediction'] %}
           <p class="title is-2">Results</p>
           <div class="text-center">
-            <img src="{{ session['segmentImageURL'] }}" class="rounded" alt="Segment Image" id="segmentImage">
+            <img src="{{ session['segmentImageURL'] }}" class="rounded" style="width:224px; height:224px;" alt="Segment Image" id="segmentImage">
             <h5 class="card-title">{{session['prediction']}}</h5>
+            <h5 class="card-title">{{session['confidence']}}</h5>
             <p class="card-text">Tampering region in white</p>
           </div>
           

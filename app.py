@@ -22,9 +22,12 @@ from config import S3_BUCKET, S3_KEY, S3_SECRET, S3_REGION
 from helpers import *
 from segmentation import *
 from keras.models import model_from_json
+import slack
+from pathlib import Path
+from dotenv import load_dotenv
 
-
-
+env_path=Path('.')/'.env'
+load_dotenv(dotenv_path=env_path)
 
 app = Flask(__name__)
 app.secret_key = os.urandom(12)  # Generic key for dev purposes only
@@ -79,10 +82,10 @@ def convert_to_ela_image(path, quality):
     return ela_image
 
 
-def prepare_image(image_path, image_size=(128, 128)):
-    return (
-        np.array(convert_to_ela_image(image_path, 90).resize(image_size)).flatten() / 2
-    )
+def prepare_image(image_path, image_size=(224, 224)):
+    img=np.array(convert_to_ela_image(image_path, 90).resize(image_size))
+    return img*5
+    
 
 
 def preprocess_image(image_path, target_size):
@@ -90,7 +93,7 @@ def preprocess_image(image_path, target_size):
 
 
     image = prepare_image(image_path, target_size)
-    image = image.reshape(-1, 128, 128, 3)
+    image = image.reshape(-1, 224, 224, 3)
 
     return image
 def create_path():
@@ -113,9 +116,9 @@ def login():
         session.pop("confidence")
         if session.get("imageURL"):
             session.pop("imageURL")
-        if(os.path.exists(session.get('segmentImageURL'))):        
-            os.remove(session.get('segmentImageURL'))
-            print("File Removed!")
+        # if(os.path.exists(session.get('segmentImageURL'))):        
+        #     os.remove(session.get('segmentImageURL'))
+        #     print("File Removed!")
         
     if not session.get("logged_in"):
         form = forms.LoginForm(request.form)
@@ -197,20 +200,22 @@ def predict():
 
             # image = '<PATH>'
 
-            processed_image = preprocess_image(image, target_size=(128, 128))
+            processed_image = preprocess_image(image, target_size=(224, 224))
 
             # preprocessing done here. Prediction stage
             prediction = model.predict(processed_image)
             y_pred_class = np.argmax(prediction, axis=1)[0]
-            class_names = ["fake", "real"]
-
+            class_names = ["real","fake"]
+            new_path='./static/assets/black.jpg'
+            if (class_names[y_pred_class]=='fake'):
             #segmented image prediction
-            new_path=segment_image(image)
+                new_path=segment_image(image)
+            
 
             print(
                 f"Class: {class_names[y_pred_class]} Confidence: {np.amax(prediction) * 100:0.2f}"
             )
-            print(type(prediction), type(np.amax(prediction)))
+            # print(type(prediction), type(np.amax(prediction)))
             pred = {}
             session["prediction"] = class_names[y_pred_class]
             session["confidence"] = float(np.amax(prediction) * 100)
@@ -239,4 +244,4 @@ def settings():
 
 # ======== Main ============================================================== #
 if __name__ == "__main__":
-    app.run(debug=True, use_reloader=True, host="0.0.0.0")
+    app.run(debug=True, use_reloader=True, port=8080)
