@@ -129,7 +129,7 @@ models
 1. Clone the repo
    ```
    $ git clone https://github.com/killer4639/sach-ka-saamna-vihaan.git
-   $ cd verisimilitudo-codecamp
+   $ cd sach-ka-saamna-vihaan
    ```
 2. Activating virtual environment (optional)
    ```
