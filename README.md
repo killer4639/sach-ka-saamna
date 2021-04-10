@@ -157,13 +157,19 @@ models
 
 This video explains how to use the version 2.0 which classifies an image if its fake or real and shows the tampered regions. Let's watch this
 
+We are developing a slack/ telegram bot for using it
+
 The white region represents- Tampering
+
+
 
 
 
 Notebook walkthrough to understand algorithm
 
-https://user-images.githubusercontent.com/42690307/112730427-828ae700-8f57-11eb-9ce1-4ad5b7b6113c.mp4
+
+
+
 
 
 
