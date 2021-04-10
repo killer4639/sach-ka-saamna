@@ -53,6 +53,7 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#challenges">Challenges</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#issues">Issues</a></li>
@@ -153,6 +154,8 @@ models
     It is because you don't have any  postresql online hosted database. Use the local one as given. Or uncomment it from scripts/tabledef.py
 
     Images get stored in the assets folder
+    
+    Slack bot will not run so that won't run. Contact us
    ```
 
 <!-- USAGE EXAMPLES -->
@@ -178,6 +181,14 @@ https://user-images.githubusercontent.com/42690307/114278678-8ab24e80-9a4e-11eb-
 - Hyper parameter tuning (learning rate,callback parameters,custom loss function etc).
 - Creating the web app for actual usability of our idea and not just a script to watch
 - Finally creating a slackbot for ease of usability.
+
+
+<!-- Challenges -->
+
+## Challenges
+
+The learning curve of our project was very steep. Limited computing resources was the biggest challenge we ran into. The image segmentation task is very expensive and thus we require a lot of computing resources to train the model effectively for a longer duration and bigger dataset. Because of that, we were only able to train the model on 3000 images for both the classification and image segmentation part. We had to devise a custom loss function for image segmentation to get good results. We were facing overfitting issues in the binary classification task and thus had to perform a lot of experimentation and fine-tuning to get good results. Deploying deep learning models is not easy because of the huge slug size of libraries like TensorFlow and Keras. Thus we were not able to deploy the model on Heroku. We were comparatively new to the Flask framework and thus debugging took more time than expected. We also developed a slack bot on the go after the suggestion of one of the mentors.
+
 
 <!-- CONTRIBUTING -->
 
