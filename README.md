@@ -161,7 +161,7 @@ models
 
 This video explains how to use the version 2.0 which classifies an image if its fake or real and shows the tampered regions. Let's watch this
 
-We are developing a slack/ telegram bot for using it so that you can detect tampering with the easy of your phone without visiting any website. We eventually want to extend it to WhatsApp (the biggest platform) hence increase our ease of usability
+We have developed a slackbot and will create a telegram bot for using it so that you can detect tampering with the easy of your phone without visiting any website. We eventually want to extend it to WhatsApp (the biggest platform) hence increase our ease of usability
 
 The white region represents- Tampering
 
@@ -177,8 +177,7 @@ https://user-images.githubusercontent.com/42690307/114278678-8ab24e80-9a4e-11eb-
 - Building the segmentation and classification model. We have used keras with tensorflow as backend to train and build the model.
 - Hyper parameter tuning (learning rate,callback parameters,custom loss function etc).
 - Creating the web app for actual usability of our idea and not just a script to watch
-- Finally deploying it to heroku which took us more than a day because of our huge slug size and complexity
-- We are still not able to deploy the application which shows the location in the image with tampering because of our increased slug size and the limits of Heroku but we have our Version 1.0 ready :D
+- Finally creating a slackbot for ease of usability.
 
 <!-- CONTRIBUTING -->
 
