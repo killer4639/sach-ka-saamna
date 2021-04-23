@@ -248,5 +248,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 [license-shield]: https://img.shields.io/github/license/killer4639/sach-ka-saamna-vihaan.svg?style=for-the-badge
 [license-url]: https://github.com/killer4639/sach-ka-saamna-vihaan/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://www.linkedin.com/in/anikash-chakraborty/
+[linkedin-url]: https://www.linkedin.com/in/shiva-gupta-1843b6170/
 
