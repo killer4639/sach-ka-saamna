@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
 
+import slack
+from skimage.io import imread
+import matplotlib.pyplot as plt
+from slackeventsapi import SlackEventAdapter
+import boto3
 from scripts import tabledef
 from scripts import forms
 from scripts import helpers
@@ -26,6 +31,7 @@ import slack
 from pathlib import Path
 from dotenv import load_dotenv
 
+s3 = boto3.client("s3", aws_access_key_id=S3_KEY, aws_secret_access_key=S3_SECRET)
 env_path = Path(".") / ".env"
 load_dotenv(dotenv_path=env_path)
 
@@ -159,20 +165,55 @@ def hello():
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
     if not session.get("logged_in"):
-        form = forms.LoginForm(request.form)
-        if request.method == "POST":
-            username = request.form["username"].lower()
-            password = helpers.hash_password(request.form["password"])
-            email = request.form["email"]
-            if form.validate():
-                if not helpers.username_taken(username):
-                    helpers.add_user(username, password, email)
+
+        email = request.form['email']
+        userId = request.form['user_id']
+        verificationToken = request.form['verification_token']
+        print(userId)
+        # print(payload_sent_from_sdk)
+        
+
+        # auth from sawo auth
+        data = {
+            'user_id': userId,
+        }
+        res = requests.post('https://api.sawolabs.com/api/v1/userverify/', data=data)
+        print(res.status_code)
+        # Match the verification token in response with sdk payload
+        if res.status_code == 200:
+            response_data = res.json()
+            print(response_data)
+            if response_data['verification_token'] == verificationToken:
+
+                # user already registered
+                if helpers.credentials_valid(email):
                     session["logged_in"] = True
-                    session["username"] = username
-                    return json.dumps({"status": "Signup successful"})
-                return json.dumps({"status": "Username taken"})
-            return json.dumps({"status": "User/Pass required"})
+                    session["username"] = email
+                    return json.dumps({"status": "Login successful"})
+
+
+                # user is new
+                helpers.add_user(email,helpers.hash_password('12345'))
+                session["logged_in"] = True
+                session["username"] = email
+                return json.dumps({"status": "Signup successful"})
+            return json.dumps({"status": "Login Unsuccessful"})
         return render_template("login.html", form=form)
+
+        # form = forms.LoginForm(request.form)
+        # if request.method == "POST":
+        #     username = request.form["username"].lower()
+        #     password = helpers.hash_password(request.form["password"])
+        #     email = request.form["email"]
+        #     if form.validate():
+        #         if not helpers.username_taken(username):
+        #             helpers.add_user(username, password, email)
+        #             session["logged_in"] = True
+        #             session["username"] = username
+        #             return json.dumps({"status": "Signup successful"})
+        #         return json.dumps({"status": "Username taken"})
+        #     return json.dumps({"status": "User/Pass required"})
+        # return render_template("login.html", form=form)
     return redirect(url_for("login"))
 
 
@@ -242,6 +283,83 @@ def settings():
     return redirect(url_for("login"))
 
 
+# -------- SlackBot---------------------------------------------------------- #
+slack_event_adapter = SlackEventAdapter(
+    os.environ["SIGNING_SECRET"], "/slack/events", app
+)
+client = slack.WebClient(token=os.environ["SLACK_TOKEN"])
+# client.chat_postMessage(channel='#slack-bot1',text="Hello world!")
+BOT_ID = client.api_call("auth.test")["user_id"]
+checkLoop = False
+
+
+@slack_event_adapter.on("message")
+def message(payload):
+    event = payload.get("event", {})
+    # print(event)
+    # print('###########################################################')
+    channel_id = event.get("channel")
+    user_id = event.get("user")
+    if BOT_ID != user_id:
+        # print(BOT_ID)
+        # print(user_id)
+        # print("################################")
+        text = event.get("text")
+        global checkLoop
+        if text != "":
+            client.chat_postMessage(
+                channel=channel_id, text="Welcome To Sach Ka Saamna"
+            )
+            checkLoop = True
+            return
+        elif checkLoop:
+            checkLoop = False
+            client.chat_postMessage(
+                channel=channel_id, text="We have received your image"
+            )
+            url = event.get("files")[0].get("url_private_download")
+            token = os.environ["SLACK_TOKEN"]
+            response = requests.get(url, headers={"Authorization": "Bearer %s" % token})
+            image = Image.open(BytesIO(response.content)).convert("RGB")
+            client.chat_postMessage(channel=channel_id, text="Image uploaded")
+            print(type(image))
+            file_name = "temp_filename.png"
+            image.save("temp_filename.png")
+            processed_image = preprocess_image(file_name, target_size=(224, 224))
+
+            # preprocessing done here. Prediction stage
+            prediction = model.predict(processed_image)
+            y_pred_class = np.argmax(prediction, axis=1)[0]
+            class_names = ["Real", "Fake"]
+            new_path = "./static/assets/black.jpg"
+            if class_names[y_pred_class] == "Fake":
+                # segmented image prediction
+                new_path = segment_image(file_name)
+
+            client.chat_postMessage(channel=channel_id, text="Image Processed")
+            print(
+                f"Class: {class_names[y_pred_class]} Confidence: {np.amax(prediction) * 100:0.2f}"
+            )
+            # print(type(prediction), type(np.amax(prediction)))
+            pred = {}
+            # session["prediction"] = class_names[y_pred_class]
+            # session["confidence"] = float(np.amax(prediction) * 100)
+            # session["fromPredict"] = True
+            # session["imageURL"] = image
+            outputMessage = (
+                class_names[y_pred_class]
+                + " with confidence of "
+                + str((np.amax(prediction) * 100))
+                + " percent."
+            )
+            result = client.files_upload(
+                channels=channel_id,
+                initial_comment=outputMessage,
+                file=new_path,
+            )
+            return
+
+
 # ======== Main ============================================================== #
 if __name__ == "__main__":
-    app.run(debug=True, use_reloader=True, port=8080)
+    app.run(debug=True, use_reloader=True)

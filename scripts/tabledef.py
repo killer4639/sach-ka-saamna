@@ -27,9 +27,9 @@ class User(Base):
     __tablename__ = "user"
 
     id = Column(Integer, primary_key=True)
-    username = Column(String(30), unique=True)
+    username = Column(String(50), unique=True)
     password = Column(String(512))
-    email = Column(String(50))
+    # email = Column(String(50))
 
     def __repr__(self):
         return '<User %r>' % self.username
