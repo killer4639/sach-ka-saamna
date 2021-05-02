@@ -22,14 +22,14 @@
   <h3 align="center">Sach Ka Saamna</h3>
 
   <p align="center">
-    An awesome website to detect image tampering. Made with Love by the team fast (team no. 49) for  Vihaan 4.0
+    An awesome website to detect image tampering. Made with Love.
     <br />
-    <a href="https://github.com/killer4639/sach-ka-saamna-vihaan"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/killer4639/sach-ka-saamna"><strong>Explore the docs »</strong></a>
     <br />
     ·
-    <a href="https://github.com/killer4639/sach-ka-saamna-vihaan/issues">Report Bug</a>
+    <a href="https://github.com/killer4639/sach-ka-saamna/issues">Report Bug</a>
     ·
-    <a href="https://github.com/killer4639/sach-ka-saamna-vihaan/issues">Request Feature</a>
+    <a href="https://github.com/killer4639/sach-ka-saamna/issues">Request Feature</a>
   </p>
 </p>
 
@@ -102,7 +102,7 @@ To get a local copy up and running follow these simple example steps.
 
 - [Python 3.7+](https://www.python.org/downloads/)
 - Make a bucket on Amazon AWS S3 and download the keys. Make sure your bucket is public.
-- Create an .env file with the following keys. (Team Vihaan- Please contact anyone from below contacts for S3 keys if there is a difficulty in using S3 or if you want to test with S3 without making an AWS account) 
+- Create an .env file with the following keys. (Please contact anyone from below contacts for S3 keys if there is a difficulty in using S3 or if you want to test with S3 without making an AWS account) 
 
   ```
   export S3_BUCKET=<Bucket Name>
@@ -128,8 +128,8 @@ models
 
 1. Clone the repo
    ```
-   $ git clone https://github.com/killer4639/sach-ka-saamna-vihaan.git
-   $ cd sach-ka-saamna-vihaan
+   $ git clone https://github.com/killer4639/sach-ka-saamna.git
+   $ cd sach-ka-saamna
    ```
 2. Activating virtual environment (optional)
    ```
@@ -195,7 +195,7 @@ The learning curve of our project was very steep. Limited computing resources wa
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-<a href="https://github.com/killer4639/sach-ka-saamna-vihaan/blob/master/CONTRIBUTING.md">Read our contributing guidelines</a>
+<a href="https://github.com/killer4639/sach-ka-saamna/blob/master/CONTRIBUTING.md">Read our contributing guidelines</a>
 
 <!-- ISSUES -->
 
@@ -220,7 +220,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 - [Anikash Chakraborty](https://www.linkedin.com/in/anikash-chakraborty/) (mailto: akh.chakraborty11@gmail.com)
 - [Shiva Gupta](https://www.linkedin.com/in/shiva-gupta-1843b6170/) (mailto: shivagupta4639@gmail.com)
 - [Divyansh Goel](https://www.linkedin.com/in/divyansh-goel-a0a433166/) (mailto: divyanshgoel1999@gmail.com) (Team Leader)
-- Project Link: [https://github.com/killer4639/sach-ka-saamna-vihaan](https://github.com/killer4639/sach-ka-saamna-vihaan)
+- Project Link: [https://github.com/killer4639/sach-ka-saamna](https://github.com/killer4639/sach-ka-saamna)
 
 <!-- ACKNOWLEDGEMENTS -->
 
@@ -237,16 +237,16 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/killer4639/sach-ka-saamna-vihaan.svg?style=for-the-badge
-[contributors-url]: https://github.com/killer4639/sach-ka-saamna-vihaan/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/killer4639/sach-ka-saamna-vihaan.svg?style=for-the-badge
-[forks-url]: https://github.com/killer4639/sach-ka-saamna-vihaan/network/members
-[stars-shield]: https://img.shields.io/github/stars/killer4639/sach-ka-saamna-vihaan.svg?style=for-the-badge
-[stars-url]: https://github.com/killer4639/sach-ka-saamna-vihaan/stargazers
-[issues-shield]: https://img.shields.io/github/issues/killer4639/sach-ka-saamna-vihaan.svg?style=for-the-badge
-[issues-url]: https://github.com/killer4639/sach-ka-saamna-vihaan/issues
-[license-shield]: https://img.shields.io/github/license/killer4639/sach-ka-saamna-vihaan.svg?style=for-the-badge
-[license-url]: https://github.com/killer4639/sach-ka-saamna-vihaan/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/killer4639/sach-ka-saamna.svg?style=for-the-badge
+[contributors-url]: https://github.com/killer4639/sach-ka-saamna/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/killer4639/sach-ka-saamna.svg?style=for-the-badge
+[forks-url]: https://github.com/killer4639/sach-ka-saamna/network/members
+[stars-shield]: https://img.shields.io/github/stars/killer4639/sach-ka-saamna.svg?style=for-the-badge
+[stars-url]: https://github.com/killer4639/sach-ka-saamna/stargazers
+[issues-shield]: https://img.shields.io/github/issues/killer4639/sach-ka-saamna.svg?style=for-the-badge
+[issues-url]: https://github.com/killer4639/sach-ka-saamna/issues
+[license-shield]: https://img.shields.io/github/license/killer4639/sach-ka-saamna.svg?style=for-the-badge
+[license-url]: https://github.com/killer4639/sach-ka-saamna/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/shiva-gupta-1843b6170/
 
