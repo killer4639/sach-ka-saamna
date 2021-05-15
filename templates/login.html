@@ -29,7 +29,7 @@
             <h1 class="title">Login/Sign Up</h1>
             <div class="signup-area">
 
-              <div id="sawo-container" style="height: 300px; width: 300px;">
+              <div id="sawo-container" style="height: 250px; width: 250px;">
             </div>
               
             </div>
@@ -59,7 +59,7 @@
 {% block scripts %}
 
 
-<script src="http://websdk.sawolabs.com/sawo.min.js"></script> 
+<script src="https://websdk.sawolabs.com/sawo.min.js"></script> 
 <script>
     var config = {
         // should be same as the id of the container created on 3rd step
@@ -67,7 +67,7 @@
         // can be one of 'email' or 'phone_number_sms'
         identifierType: "email",
         // Add the API key copied from 2nd step
-        apiKey: '1a173654-bbb5-47be-bb93-0c158710f4cc',
+        apiKey: '',
         // Add a callback here to handle the payload sent by sdk
         onSuccess: (payload) => {
             console.log(payload)
